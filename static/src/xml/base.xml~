@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+  <t t-extend="WidgetButton">
+    <t t-jquery="oe_button" t-operation="replace">
+      <button type="button" t-att-class="widget.is_stat_button ? 'oe_stat_button btn btn-default' : 'oe_button oe_form_button'"
+              t-att-style="widget.node.attrs.style"
+              t-att-tabindex="widget.node.attrs.tabindex"
+              t-att-autofocus="widget.node.attrs.autofocus"
+              t-att-accesskey="widget.node.attrs.accesskey">
+	<img t-if="!widget.is_stat_button and widget.node.attrs.icon " t-att-src="_s + widget.node.attrs.icon" width="16" height="16"/>
+	<div t-if="widget.icon_class" t-att-class="widget.icon_class"></div>
+	<span t-if="widget.string and !widget.is_stat_button"><t t-esc="widget.string"/></span>
+	<div t-if="widget.string and widget.is_stat_button"><t t-esc="widget.string"/></div>
+      </button>
+    </t>
+  </t>
+</templates>
